@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { ShellComponent } from './shell/shell.component';
+import { HeaderComponent } from "./header/header.component";
 
 @NgModule({
 	declarations: [
-		ShellComponent
+		ShellComponent,
+		HeaderComponent
 	],
 	imports: [
 		BrowserModule,
