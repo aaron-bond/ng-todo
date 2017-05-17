@@ -1,0 +1,33 @@
+section {
+	display: flex;
+
+	margin-top: 5rem;
+	margin-bottom: 1rem;
+
+	#date {
+		display: inline-block;
+		font-size: 2.5rem;
+	}
+
+	#month-year {
+		display: inline-block;
+	}
+
+	#month {
+		font-weight: bold;
+	}
+	#year {
+
+	}
+}
+
+.filler {
+	flex-grow: 1;
+}
+
+#day {
+	font-size: 1.5rem;
+
+    display: flex;
+    align-items: center;
+}

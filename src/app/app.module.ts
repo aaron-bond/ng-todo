@@ -5,11 +5,17 @@ import { HttpModule } from '@angular/http';
 
 import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from "./header/header.component";
+import { ProgressComponent } from "./progress/progress.component";
+import { TodoListComponent } from "./todo-list/todo-list.component";
+import { TodoItemComponent } from "./todo-list/todo-item/todo-item.component";
 
 @NgModule({
 	declarations: [
 		ShellComponent,
-		HeaderComponent
+		HeaderComponent,
+		ProgressComponent,
+		TodoListComponent,
+		TodoItemComponent
 	],
 	imports: [
 		BrowserModule,

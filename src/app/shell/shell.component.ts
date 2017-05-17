@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
 	styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent {
-	title = 'shell works!';
 }

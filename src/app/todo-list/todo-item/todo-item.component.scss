@@ -1,0 +1,30 @@
+.item-container {
+	height: 3rem;
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+
+	border: 1px solid rgba(0,0,0,0.3);
+
+	.item-title {
+		margin-left: 1rem;
+	}
+
+	.item-controls {
+		margin-right: 1rem;
+
+		i {
+			opacity: 0.75;
+
+			&:hover {
+				cursor: pointer;
+				opacity: 1;
+			}
+		}
+	}
+
+	.filler {
+		flex-grow: 1;
+	}
+}
