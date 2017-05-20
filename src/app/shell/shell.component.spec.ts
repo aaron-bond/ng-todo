@@ -21,7 +21,7 @@ describe('ShellComponent', () => {
 		expect(app).toBeTruthy();
 	}));
 
-	it(`should have as title 'shell works!'`, async(() => {
+	/*it(`should have as title 'shell works!'`, async(() => {
 		const fixture = TestBed.createComponent(ShellComponent);
 		const app = fixture.debugElement.componentInstance;
 		expect(app.title).toEqual('shell works!');
@@ -32,5 +32,5 @@ describe('ShellComponent', () => {
 		fixture.detectChanges();
 		const compiled = fixture.debugElement.nativeElement;
 		expect(compiled.querySelector('h1').textContent).toContain('shell works!');
-	}));
+	}));*/
 });

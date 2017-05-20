@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { TodoItemStatus } from 'enums';
 
 @Component({
 	selector: 'todo-item',
@@ -6,4 +7,12 @@ import { Component } from '@angular/core';
 	styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent {
+
+	@Input()
+	public IsNewItem: boolean = false;
+
+	@Input()
+	public TodoItem: TodoItem;
+
+	public TodoItemStatus: typeof TodoItemStatus = TodoItemStatus;
 }

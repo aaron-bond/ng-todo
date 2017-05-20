@@ -9,13 +9,18 @@ import { ProgressComponent } from "./progress/progress.component";
 import { TodoListComponent } from "./todo-list/todo-list.component";
 import { TodoItemComponent } from "./todo-list/todo-item/todo-item.component";
 
+import { TodoStatusPipe } from "pipes/todostatus.pipe";
+
 @NgModule({
 	declarations: [
 		ShellComponent,
 		HeaderComponent,
 		ProgressComponent,
 		TodoListComponent,
-		TodoItemComponent
+		TodoItemComponent,
+
+		// pipes
+		TodoStatusPipe
 	],
 	imports: [
 		BrowserModule,

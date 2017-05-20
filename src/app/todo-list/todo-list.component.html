@@ -1,1 +1,11 @@
-<todo-item></todo-item>
+<todo-item [IsNewItem]="true"></todo-item>
+
+<todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Active)" [TodoItem]="item"></todo-item>
+
+<div class="section-header">Completed</div>
+
+<todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Completed)" [TodoItem]="item"></todo-item>
+
+<div class="section-header">Later...</div>
+
+<todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Paused)" [TodoItem]="item"></todo-item>

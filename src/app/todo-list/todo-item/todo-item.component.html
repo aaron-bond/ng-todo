@@ -1,14 +1,23 @@
-<div class="item-container">
-
+<div class="item-container" *ngIf="IsNewItem">
 	<span class="item-title">
-		Add new item
+		<input type="text" placeholder="Add new item" />
 	</span>
 
-	<span class="filler"></span>
+	<span class="item-controls">
+		<i class="material-icons">add</i>
+	</span>
+</div>
+
+<div class="item-container" *ngIf="!IsNewItem" [class.active]="TodoItem.Status == TodoItemStatus.Active" [class.complete]="TodoItem.Status == TodoItemStatus.Completed"
+ [class.paused]="TodoItem.Status == TodoItemStatus.Paused">
+
+	<span class="item-title">
+		{{ TodoItem.Title }}
+	</span>
 
 	<span class="item-controls">
-		<i class="material-icons">clear</i>
-		<i class="material-icons">pause</i>
-		<i class="material-icons">done</i>
+		<i class="material-icons clear" *ngIf="TodoItem.Status == TodoItemStatus.Active || TodoItem.Status == TodoItemStatus.Paused">clear</i>
+		<i class="material-icons pause" *ngIf="TodoItem.Status == TodoItemStatus.Active">pause</i>
+		<i class="material-icons done" *ngIf="TodoItem.Status == TodoItemStatus.Active">done</i>
 	</span>
 </div>
