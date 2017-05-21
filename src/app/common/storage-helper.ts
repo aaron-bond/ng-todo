@@ -7,18 +7,28 @@ import { TodoItemStatus } from "enums";
 export class StorageHelper {
 
 	private todoItems: TodoItem[];
+
 	public get TodoItems(): TodoItem[] {
 		if (!this.todoItems) {
 			this.todoItems = this.readLocalStorage();
 
-			// loop through items to find paused ones that are more than 24hours old
+			let today = new Date();
+			today.setHours(0, 0, 0, 0);
+
 			this.todoItems.forEach(item => {
-				if (item.Status == TodoItemStatus.Paused) {
-					/*item.Modified.setHours(0);
-					item.Modified.setMinutes(0);
-					item.Modified.setSeconds(0);*/
+				if (today > new Date(item.Modified)) {
+
+					if (item.Status == TodoItemStatus.Paused) {
+						item.Status = TodoItemStatus.Active;
+					} else if (item.Status == TodoItemStatus.Completed) {
+						item.Status = TodoItemStatus.Removed;
+					}
 				}
 			});
+
+			this.todoItems = this.todoItems.filter(item => item.Status != TodoItemStatus.Removed);
+
+			this.writeLocalStorage(this.todoItems);
 		}
 
 		return this.todoItems;
@@ -43,9 +53,7 @@ export class StorageHelper {
 
 			item.Status = status;
 			item.Modified = new Date();
-			// item.Modified.setTime(0);
-
-			console.log(item.Modified);
+			item.Modified.setHours(0, 0, 0, 0);
 		}
 
 		this.writeLocalStorage(this.todoItems);

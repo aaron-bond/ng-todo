@@ -24,6 +24,9 @@ export class TodoItemComponent {
 
 	public HandleAddClick(): void {
 		this.AddNewItem.emit(this.TodoItem.Title);
+
+		// reset the textbox
+		this.TodoItem = { Id: "", Title: "", Status: TodoItemStatus.Active };
 	}
 
 	public HandleUpdateClick(status: TodoItemStatus): void {
