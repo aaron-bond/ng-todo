@@ -11,6 +11,8 @@ import { TodoItemComponent } from "./todo-list/todo-item/todo-item.component";
 
 import { TodoStatusPipe } from "pipes/todostatus.pipe";
 
+import { StorageHelper } from "./common/storage-helper";
+
 @NgModule({
 	declarations: [
 		ShellComponent,
@@ -27,7 +29,7 @@ import { TodoStatusPipe } from "pipes/todostatus.pipe";
 		FormsModule,
 		HttpModule
 	],
-	providers: [],
+	providers: [StorageHelper],
 	bootstrap: [ShellComponent]
 })
 export class AppModule { }

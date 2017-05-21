@@ -11,6 +11,20 @@
 	background-color: $shade;
 	border: 1px solid $medium;
 
+	&.new {
+		opacity: 0.5;
+	}
+
+	&.active {
+
+	}
+	&.paused {
+		color: #FFED51;
+	}
+	&.complete {
+		color: #14B259;
+	}
+
 	.item-title {
 		margin-left: 1rem;
 		flex-grow: 1;
@@ -43,13 +57,13 @@
 			}
 
 			&.done {
-				color: #14B259;
+				color: $go;
 			}
 			&.pause {
-				color: #FFED51;
+				color: $pause;
 			}
 			&.clear {
-				color: #E8142A;
+				color: $stop;
 			}
 		}
 	}
