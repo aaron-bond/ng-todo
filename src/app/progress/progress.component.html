@@ -1,4 +1,4 @@
 <section id="progress">
-	<span class="paused"></span>
-	<span class="completed"></span>
+	<span class="paused" [style.width.%]="PausedPercentage + CompletePercentage"></span>
+	<span class="completed" [style.width.%]="CompletePercentage"></span>
 </section>

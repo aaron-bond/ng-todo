@@ -14,12 +14,10 @@
 		top: 0;
 
 		&.paused {
-			width: 60%;
 			background-color: $pause;
 		}
 
 		&.completed {
-			width: 50%;
 			background-color: $go;
 		}
 	}
