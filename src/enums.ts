@@ -1,5 +1,7 @@
 export enum TodoItemStatus {
 	Active,
 	Paused,
-	Completed
+	Completed,
+	Important,
+	Removed
 }

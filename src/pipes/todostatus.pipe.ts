@@ -9,7 +9,10 @@ import { TodoItemStatus } from "enums";
  * Example:
  *   {{ todoItems |  todoItemStatus:TodoItemStatus.Paused }}
 */
-@Pipe({ name: 'todoStatus' })
+@Pipe({
+	name: 'todoStatus',
+	pure: false
+})
 export class TodoStatusPipe implements PipeTransform {
 	transform(items: TodoItem[], todoItemStatus: TodoItemStatus) {
 		return items.filter(item => item.Status == todoItemStatus);

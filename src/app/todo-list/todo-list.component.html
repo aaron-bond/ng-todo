@@ -1,11 +1,14 @@
-<todo-item [IsNewItem]="true"></todo-item>
+<todo-item [IsNewItem]="true" (AddNewItem)="AddNewItem($event)"></todo-item>
 
-<todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Active)" [TodoItem]="item"></todo-item>
+<todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Active)" [TodoItem]="item" (UpdateItem)="UpdateItem(item.Id, $event)"></todo-item>
 
 <div class="section-header">Completed</div>
 
-<todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Completed)" [TodoItem]="item"></todo-item>
+<todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Completed)" [TodoItem]="item" (UpdateItem)="UpdateItem(item.Id, $event)"></todo-item>
 
 <div class="section-header">Later...</div>
 
-<todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Paused)" [TodoItem]="item"></todo-item>
+<todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Paused)" [TodoItem]="item" (UpdateItem)="UpdateItem(item.Id, $event)"></todo-item>
+
+<button [style.opacity]="0.2" (click)="testing()">TEST</button>
+<button [style.opacity]="0.2" (click)="clear()">CLEAR</button>

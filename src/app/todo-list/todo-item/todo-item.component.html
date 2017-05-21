@@ -1,10 +1,10 @@
 <div class="item-container new" *ngIf="IsNewItem">
 	<span class="item-title">
-		<input type="text" placeholder="Add new item" />
+		<input type="text" placeholder="Add new item" [(ngModel)]="TodoItem.Title" (keyup.enter)="HandleAddClick()"/>
 	</span>
 
 	<span class="item-controls">
-		<i class="material-icons">add</i>
+		<i class="material-icons" (click)="HandleAddClick()">add</i>
 	</span>
 </div>
 
@@ -16,8 +16,8 @@
 	</span>
 
 	<span class="item-controls">
-		<i class="material-icons clear" *ngIf="TodoItem.Status == TodoItemStatus.Active || TodoItem.Status == TodoItemStatus.Paused">clear</i>
-		<i class="material-icons pause" *ngIf="TodoItem.Status == TodoItemStatus.Active">pause</i>
-		<i class="material-icons done" *ngIf="TodoItem.Status == TodoItemStatus.Active">done</i>
+		<i class="material-icons clear" (click)="HandleUpdateClick(TodoItemStatus.Removed)" *ngIf="TodoItem.Status == TodoItemStatus.Active || TodoItem.Status == TodoItemStatus.Paused">clear</i>
+		<i class="material-icons pause" (click)="HandleUpdateClick(TodoItemStatus.Paused)" *ngIf="TodoItem.Status == TodoItemStatus.Active">pause</i>
+		<i class="material-icons done" (click)="HandleUpdateClick(TodoItemStatus.Completed)" *ngIf="TodoItem.Status == TodoItemStatus.Active">done</i>
 	</span>
 </div>

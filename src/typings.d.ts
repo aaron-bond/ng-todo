@@ -6,6 +6,7 @@ interface NodeModule {
 }
 
 interface TodoItem {
+	Id: string;
 	Title: string;
 	Status: number;
 	Modified?: Date;
