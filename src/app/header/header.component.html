@@ -1,15 +1,15 @@
 <section>
 	<div>
-		<span id="date">30</span>
+		<span id="date">{{ Today | date:'dd' }}</span>
 		<span id="month-year">
-			<div id="month">Apr</div>
-			<div id="year">2017</div>
+			<div id="month">{{ Today | date:'MMM' }}</div>
+			<div id="year">{{ Today | date:'y' }}</div>
 		</span>
 	</div>
 
 	<span class="filler"></span>
 
 	<div id="day">
-		<span>Sunday</span>
+		<span>{{ Today | date:'EEEE' }}</span>
 	</div>
 </section>
