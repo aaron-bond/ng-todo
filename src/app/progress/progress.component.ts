@@ -31,6 +31,16 @@ export class ProgressComponent {
 		return percentage;
 	}
 
+	public get ImportantPercentage(): number {
+		if (this.todoItems.length == 0) {
+			return 0;
+		}
+
+		let percentage = (this.todoItems.filter(item => item.Status == TodoItemStatus.Important).length / this.todoItems.length) * 100;
+
+		return percentage;
+	}
+
 	public constructor(private storageHelper: StorageHelper) {
 		this.todoItems = this.storageHelper.TodoItems;
 	}

@@ -7,25 +7,39 @@
 	display: flex;
 	align-items: center;
 	margin-bottom: 1rem;
-
 	background-color: $shade;
 	border: 1px solid $medium;
 
+	&:not(.selected):hover {
+		cursor: pointer;
+		background-color: $dark;
+	}
 	&.new {
 		opacity: 0.5;
 	}
 
-	&.active {
-
-	}
 	&.paused {
-		color: #FFED51;
+		color: $pause;
 	}
 	&.complete {
-		color: #14B259;
+		color: $go;
+	}
+	&.important {
+		color: $important;
+	}
+	&.selected {
+		background-color: $dark;
+
+		.item-title {
+			display: none;
+		}
+		.item-controls {
+			display: flex;
+		}
 	}
 
 	.item-title {
+		text-align: center;
 		margin-left: 1rem;
 		flex-grow: 1;
 
@@ -36,35 +50,66 @@
 			height: 2rem;
 			font-size: 1rem;
 			width: 100%;
-		}
 
-		input:focus {
-			outline: 0;
+			&:hover {
+				cursor: pointer;
+			}
+			&:focus {
+				outline: 0;
+				cursor: text;
+			}
 		}
 	}
 
 	.item-controls {
-		margin-right: 0.5rem;
-		display: flex;
+		display: none;
     	align-items: center;
+		width: 100%;
+		text-align: center;
 
-		i {
-			opacity: 0.75;
+		span {
+			flex-grow: 1;
+			height: 3rem;
+			display: flex;
+			align-items: center;
 
 			&:hover {
 				cursor: pointer;
 				opacity: 1;
 			}
+			&.done:hover, &.done:active {
+				color: $light;
+				background-color: $go;
+			}
+			&.pause:hover, &.pause:active {
+				color: $light;
+				background-color: $pause;
+			}
+			&.clear:hover, &.clear:active {
+				color: $light;
+				background-color: $stop;
+			}
+			&.important:hover, &.important:active {
+				color: $light;
+				background-color: $important;
+			}
 
-			&.done {
-				color: $go;
+			i {
+				margin: 0 auto;
 			}
-			&.pause {
-				color: $pause;
-			}
-			&.clear {
-				color: $stop;
-			}
+		}
+
+		.done {
+			color: $go;
+		}
+		.pause {
+			color: $pause;
+		}
+		.clear {
+			color: $stop;
+		}
+		.important {
+			color: $important;
 		}
 	}
 }

@@ -16,9 +16,11 @@
 		&.paused {
 			background-color: $pause;
 		}
-
 		&.completed {
 			background-color: $go;
+		}
+		&.important {
+			background-color: $important;
 		}
 	}
 }

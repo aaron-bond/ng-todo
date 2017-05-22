@@ -8,16 +8,32 @@
 	</span>
 </div>
 
-<div class="item-container" *ngIf="!IsNewItem" [class.active]="TodoItem.Status == TodoItemStatus.Active" [class.complete]="TodoItem.Status == TodoItemStatus.Completed"
- [class.paused]="TodoItem.Status == TodoItemStatus.Paused">
+<div class="item-container" *ngIf="!IsNewItem" (click)="SelectItem()"
+	[class.selected]="IsSelected"
+	[class.active]="TodoItem.Status == TodoItemStatus.Active"
+	[class.complete]="TodoItem.Status == TodoItemStatus.Completed"
+ 	[class.paused]="TodoItem.Status == TodoItemStatus.Paused"
+	[class.important]="TodoItem.Status == TodoItemStatus.Important">
 
 	<span class="item-title">
 		{{ TodoItem.Title }}
 	</span>
 
 	<span class="item-controls">
-		<i class="material-icons clear" (click)="HandleUpdateClick(TodoItemStatus.Removed)" *ngIf="TodoItem.Status == TodoItemStatus.Active || TodoItem.Status == TodoItemStatus.Paused">clear</i>
-		<i class="material-icons pause" (click)="HandleUpdateClick(TodoItemStatus.Paused)" *ngIf="TodoItem.Status == TodoItemStatus.Active">pause</i>
-		<i class="material-icons done" (click)="HandleUpdateClick(TodoItemStatus.Completed)" *ngIf="TodoItem.Status == TodoItemStatus.Active">done</i>
+		<span class="important" (click)="HandleUpdateClick(TodoItemStatus.Important)" *ngIf="TodoItem.Status == TodoItemStatus.Active">
+			<i class="material-icons">star</i>
+		</span>
+
+		<span class="clear" (click)="HandleUpdateClick(TodoItemStatus.Removed)">
+			<i class="material-icons">clear</i>
+		</span>
+
+		<span class="pause" (click)="HandleUpdateClick(TodoItemStatus.Paused)" *ngIf="TodoItem.Status == TodoItemStatus.Active">
+			<i class="material-icons">pause</i>
+		</span>
+
+		<span class="done" (click)="HandleUpdateClick(TodoItemStatus.Completed)" *ngIf="TodoItem.Status == TodoItemStatus.Active || TodoItem.Status == TodoItemStatus.Paused">
+			<i class="material-icons">done</i>
+		</span>
 	</span>
 </div>

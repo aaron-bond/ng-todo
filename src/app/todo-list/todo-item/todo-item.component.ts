@@ -1,10 +1,13 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { TodoItemStatus } from 'enums';
 
 @Component({
 	selector: 'todo-item',
 	templateUrl: './todo-item.component.html',
-	styleUrls: ['./todo-item.component.scss']
+	styleUrls: ['./todo-item.component.scss'],
+	host: {
+		'(document:click)': 'clickAnywhere($event)'
+	}
 })
 export class TodoItemComponent {
 
@@ -21,6 +24,13 @@ export class TodoItemComponent {
 	public UpdateItem = new EventEmitter<TodoItemStatus>();
 
 	public TodoItemStatus: typeof TodoItemStatus = TodoItemStatus;
+	public IsSelected: boolean = false;
+
+	public constructor(private elementRef: ElementRef) { }
+
+	public SelectItem(): void {
+		this.IsSelected = true;
+	}
 
 	public HandleAddClick(): void {
 		this.AddNewItem.emit(this.TodoItem.Title);
@@ -31,5 +41,11 @@ export class TodoItemComponent {
 
 	public HandleUpdateClick(status: TodoItemStatus): void {
 		this.UpdateItem.emit(status);
+	}
+
+	private clickAnywhere(event: MouseEvent): void {
+		if (this.IsSelected && !this.elementRef.nativeElement.contains(event.target)) {
+			this.IsSelected = false;
+		}
 	}
 }

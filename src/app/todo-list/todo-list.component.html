@@ -1,13 +1,20 @@
+<!-- New -->
 <todo-item [IsNewItem]="true" (AddNewItem)="AddNewItem($event)"></todo-item>
 
+<!-- Important -->
+<todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Important)" [TodoItem]="item" (UpdateItem)="UpdateItem(item.Id, $event)"></todo-item>
+
+<!-- Active -->
 <todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Active)" [TodoItem]="item" (UpdateItem)="UpdateItem(item.Id, $event)"></todo-item>
 
 <div class="section-header">Completed</div>
 
+<!-- Complete -->
 <todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Completed)" [TodoItem]="item" (UpdateItem)="UpdateItem(item.Id, $event)"></todo-item>
 
 <div class="section-header">Later...</div>
 
+<!-- Paused -->
 <todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Paused)" [TodoItem]="item" (UpdateItem)="UpdateItem(item.Id, $event)"></todo-item>
 
 <button [style.opacity]="0.2" (click)="testing()">TEST</button>
