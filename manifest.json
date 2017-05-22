@@ -1,0 +1,17 @@
+{
+  "name": "todo",
+  "short_name": "todo",
+  "icons": [{
+      "src": "assets/ic_done_all_black_48dp_xxhdpi.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },{
+      "src": "assets/ic_done_all_black_48dp_xxxhdpi.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#DF5A49",
+  "theme_color": "#DF5A49"
+}
