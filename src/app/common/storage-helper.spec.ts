@@ -7,13 +7,13 @@ describe('StorageHelper', () => {
 		TestBed.configureTestingModule({ providers: [StorageHelper] });
     
 		var store = {};
-		spyOn(localStorage, 'getItem').andCallFake(function (key) {
+		spyOn(localStorage, 'getItem').and.callFake(function (key) {
 			return store[key];
 		});
-		spyOn(localStorage, 'setItem').andCallFake(function (key, value) {
+		spyOn(localStorage, 'setItem').and.callFake(function (key, value) {
 			return store[key] = value + '';
 		});
-		spyOn(localStorage, 'clear').andCallFake(function () {
+		spyOn(localStorage, 'clear').and.callFake((function () {
 			store = {};
 		});
 	}));
