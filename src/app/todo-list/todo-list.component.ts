@@ -27,18 +27,4 @@ export class TodoListComponent {
 	public UpdateItem(id: string, status: TodoItemStatus): void {
 		this.storageHelper.UpdateItem(id, status);
 	}
-
-	// TESTING //
-	public testing(): void {
-		this.storageHelper.AddNewItem("Clean living room");
-		this.storageHelper.AddNewItem("Vacuum bedrooms");
-		this.storageHelper.AddNewItem("Get groceries");
-		this.storageHelper.AddNewItem("Finish revision");
-		this.storageHelper.AddNewItem("Prepare lunch");
-		this.storageHelper.AddNewItem("Walk dog");
-	}
-
-	public clear(): void {
-		localStorage.clear();
-	}
 }

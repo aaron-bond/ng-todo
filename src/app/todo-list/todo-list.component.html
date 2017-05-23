@@ -16,6 +16,3 @@
 
 <!-- Paused -->
 <todo-item *ngFor="let item of (TodoItems | todoStatus: TodoItemStatus.Paused)" [TodoItem]="item" (UpdateItem)="UpdateItem(item.Id, $event)"></todo-item>
-
-<button [style.opacity]="0.2" (click)="testing()">TEST</button>
-<button [style.opacity]="0.2" (click)="clear()">CLEAR</button>

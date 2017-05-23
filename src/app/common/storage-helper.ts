@@ -34,20 +34,27 @@ export class StorageHelper {
 		return this.todoItems;
 	}
 
-	public AddNewItem(title: string): void {
-		this.todoItems.push({ Id: this.generateId(), Title: title, Status: TodoItemStatus.Active });
+	public AddNewItem(title: string): TodoItem {
+		let newItem: TodoItem = {
+			Id: this.generateId(),
+			Title: title,
+			Status: TodoItemStatus.Active
+		};
 
-		this.writeLocalStorage(this.todoItems);
+		this.TodoItems.push(newItem);
+		this.writeLocalStorage(this.TodoItems);
+
+		return newItem;
 	}
 
 	public UpdateItem(id: string, status: TodoItemStatus): void {
-		let item: TodoItem = this.todoItems.find(item => item.Id == id);
+		let item: TodoItem = this.TodoItems.find(item => item.Id == id);
 
 		if (item) {
 			if (status == TodoItemStatus.Removed) {
-				var index = this.todoItems.indexOf(item, 0);
+				var index = this.TodoItems.indexOf(item, 0);
 				if (index > -1) {
-					this.todoItems.splice(index, 1);
+					this.TodoItems.splice(index, 1);
 				}
 			}
 
@@ -56,7 +63,7 @@ export class StorageHelper {
 			item.Modified.setHours(0, 0, 0, 0);
 		}
 
-		this.writeLocalStorage(this.todoItems);
+		this.writeLocalStorage(this.TodoItems);
 	}
 
 	private readLocalStorage(): TodoItem[] {
