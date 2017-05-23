@@ -18,7 +18,12 @@ describe('StorageHelper', () => {
 		});
 	}));
 
-	it('should do something', async(inject([StorageHelper], (storageHelper: StorageHelper) => {
-    
+	it('should initialise TodoItems to an empty array', async(inject([StorageHelper], (storageHelper: StorageHelper) => {    
+	})));
+		
+	it('should add an item to the array, and write to storage', async(inject([StorageHelper], (storageHelper: StorageHelper) => {    
+	})));
+		
+	it('should update item status to X', async(inject([StorageHelper], (storageHelper: StorageHelper) => {    
 	})));
 });
