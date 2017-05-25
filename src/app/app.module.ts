@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { ShellComponent } from './shell/shell.component';
-import { HeaderComponent } from "./header/header.component";
-import { ProgressComponent } from "./progress/progress.component";
-import { TodoListComponent } from "./todo-list/todo-list.component";
-import { TodoItemComponent } from "./todo-list/todo-item/todo-item.component";
+import { HeaderComponent } from './header/header.component';
+import { ProgressComponent } from './progress/progress.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
 
-import { TodoStatusPipe } from "pipes/todostatus.pipe";
+import { TodoStatusPipe } from 'pipes/todostatus.pipe';
 
-import { StorageHelper } from "./common/storage-helper";
+import { StorageHelper } from './common/storage-helper';
 
 @NgModule({
 	declarations: [
@@ -21,7 +21,7 @@ import { StorageHelper } from "./common/storage-helper";
 		TodoListComponent,
 		TodoItemComponent,
 
-		// pipes
+		// Pipes
 		TodoStatusPipe
 	],
 	imports: [

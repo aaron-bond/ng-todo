@@ -10,7 +10,7 @@
 			"check-space"
 		],
 		"curly": true,
-		"eofline": true,
+		"eofline": false,
 		"forin": true,
 		"import-blacklist": [
 			true,
@@ -19,7 +19,7 @@
 		"import-spacing": true,
 		"indent": [
 			true,
-			"spaces"
+			"tabs"
 		],
 		"interface-over-type-literal": true,
 		"label-position": true,
@@ -27,14 +27,22 @@
 			true,
 			140
 		],
-		"member-access": false,
+		"member-access": true,
 		"member-ordering": [
 			true,
-			"static-before-instance",
-			"variables-before-functions"
+			{
+				"order": [
+					"static-field",
+					"private-instance-field",
+					"public-instance-field",
+					"constructor",
+					"public-instance-method",
+					"protected-instance-method",
+					"private-instance-method"
+				]
+			}
 		],
 		"no-arg": true,
-		"no-bitwise": true,
 		"no-console": [
 			true,
 			"debug",
@@ -48,14 +56,10 @@
 		"no-empty": false,
 		"no-empty-interface": true,
 		"no-eval": true,
-		"no-inferrable-types": [
-			true,
-			"ignore-params"
-		],
 		"no-shadowed-variable": true,
 		"no-string-literal": false,
 		"no-string-throw": true,
-		"no-switch-case-fall-through": true,
+		"no-switch-case-fall-through": false,
 		"no-trailing-whitespace": true,
 		"no-unused-expression": true,
 		"no-use-before-declare": true,
@@ -68,7 +72,7 @@
 			"check-else",
 			"check-whitespace"
 		],
-		"prefer-const": true,
+		"prefer-const": false,
 		"quotemark": [
 			true,
 			"single"
@@ -76,10 +80,6 @@
 		"radix": true,
 		"semicolon": [
 			"always"
-		],
-		"triple-equals": [
-			true,
-			"allow-null-check"
 		],
 		"typedef-whitespace": [
 			true,
@@ -93,7 +93,7 @@
 		],
 		"typeof-compare": true,
 		"unified-signatures": true,
-		"variable-name": false,
+		"variable-name": [true, "allow-pascal-case"],
 		"whitespace": [
 			true,
 			"check-branch",
@@ -111,8 +111,7 @@
 		"component-selector": [
 			true,
 			"element",
-			"app",
-			"kebab-case"
+			"app"
 		],
 		"use-input-property-decorator": true,
 		"use-output-property-decorator": true,

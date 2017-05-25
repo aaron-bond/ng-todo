@@ -1,6 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 
-import { TodoItemStatus } from "enums";
+import { TodoItemStatus } from 'enums';
 
 // This class acts as a singleton and can be injected into any component
 @Injectable()
@@ -48,19 +48,19 @@ export class StorageHelper {
 	}
 
 	public UpdateItem(id: string, status: TodoItemStatus): void {
-		let item: TodoItem = this.TodoItems.find(item => item.Id == id);
+		let itemToUpdate: TodoItem = this.TodoItems.find(item => item.Id == id);
 
-		if (item) {
+		if (itemToUpdate) {
 			if (status == TodoItemStatus.Removed) {
-				var index = this.TodoItems.indexOf(item, 0);
+				let index = this.TodoItems.indexOf(itemToUpdate, 0);
 				if (index > -1) {
 					this.TodoItems.splice(index, 1);
 				}
 			}
 
-			item.Status = status;
-			item.Modified = new Date();
-			item.Modified.setHours(0, 0, 0, 0);
+			itemToUpdate.Status = status;
+			itemToUpdate.Modified = new Date();
+			itemToUpdate.Modified.setHours(0, 0, 0, 0);
 		}
 
 		this.writeLocalStorage(this.TodoItems);
@@ -77,7 +77,7 @@ export class StorageHelper {
 
 	private generateId(): string {
 		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-			var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+			let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
 			return v.toString(16);
 		});
 	}

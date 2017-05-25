@@ -62,10 +62,10 @@
 	}
 
 	.item-controls {
-		display: none;
     	align-items: center;
-		width: 100%;
 		text-align: center;
+			display: none;
+			width: 100%;
 
 		span {
 			flex-grow: 1;

@@ -1,13 +1,10 @@
-import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
 import { TodoItemStatus } from 'enums';
 
 @Component({
 	selector: 'todo-item',
 	templateUrl: './todo-item.component.html',
-	styleUrls: ['./todo-item.component.scss'],
-	host: {
-		'(document:click)': 'clickAnywhere($event)'
-	}
+	styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent {
 
@@ -15,7 +12,7 @@ export class TodoItemComponent {
 	public IsNewItem: boolean = false;
 
 	@Input()
-	public TodoItem: TodoItem = { Id: "", Title: "", Status: TodoItemStatus.Active };
+	public TodoItem: TodoItem = { Id: '', Title: '', Status: TodoItemStatus.Active };
 
 	@Output()
 	public AddNewItem = new EventEmitter<string>();
@@ -23,8 +20,8 @@ export class TodoItemComponent {
 	@Output()
 	public UpdateItem = new EventEmitter<TodoItemStatus>();
 
-	public TodoItemStatus: typeof TodoItemStatus = TodoItemStatus;
 	public IsSelected: boolean = false;
+	public TodoItemStatus: typeof TodoItemStatus = TodoItemStatus;
 
 	public constructor(private elementRef: ElementRef) { }
 
@@ -36,13 +33,14 @@ export class TodoItemComponent {
 		this.AddNewItem.emit(this.TodoItem.Title);
 
 		// reset the textbox
-		this.TodoItem = { Id: "", Title: "", Status: TodoItemStatus.Active };
+		this.TodoItem = { Id: '', Title: '', Status: TodoItemStatus.Active };
 	}
 
 	public HandleUpdateClick(status: TodoItemStatus): void {
 		this.UpdateItem.emit(status);
 	}
 
+	@HostListener('document:click')
 	private clickAnywhere(event: MouseEvent): void {
 		if (this.IsSelected && !this.elementRef.nativeElement.contains(event.target)) {
 			this.IsSelected = false;

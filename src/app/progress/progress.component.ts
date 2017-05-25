@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { StorageHelper } from "../common/storage-helper";
-import { TodoItemStatus } from "enums";
+import { StorageHelper } from '../common/storage-helper';
+import { TodoItemStatus } from 'enums';
 
 @Component({
 	selector: 'todo-progress',

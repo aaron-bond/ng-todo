@@ -7,7 +7,7 @@ describe('StorageHelper', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({ providers: [StorageHelper] });
 
-		var store = {};
+		let store = {};
 		spyOn(localStorage, 'getItem').and.callFake(function (key) {
 			return store[key] ? store[key] : null;
 		});

@@ -1,9 +1,9 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { TodoStatusPipe } from 'pipes/todostatus.pipe';
-import { TodoItemStatus } from "enums";
+import { TodoItemStatus } from 'enums';
 
-import { StorageHelper } from "../common/storage-helper";
+import { StorageHelper } from '../common/storage-helper';
 
 @Component({
 	selector: 'todo-list',
@@ -12,13 +12,13 @@ import { StorageHelper } from "../common/storage-helper";
 })
 export class TodoListComponent {
 
-	public TodoItems: TodoItem[];
-
 	public TodoItemStatus: typeof TodoItemStatus = TodoItemStatus;
 
-	public constructor(private storageHelper: StorageHelper, private ref: ChangeDetectorRef) {
-		this.TodoItems = this.storageHelper.TodoItems;
+	public get TodoItems(): TodoItem[] {
+		return this.storageHelper.TodoItems;
 	}
+
+	public constructor(private storageHelper: StorageHelper) {}
 
 	public AddNewItem(title: string): void {
 		this.storageHelper.AddNewItem(title);
