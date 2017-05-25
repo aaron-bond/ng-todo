@@ -14,8 +14,8 @@ describe('HeaderComponent', () => {
 
 	it('should create the header', async(() => {
 		let fixture = TestBed.createComponent(HeaderComponent);
-		let app = fixture.debugElement.componentInstance;
-		expect(app).toBeTruthy();
+		let header = fixture.debugElement.componentInstance;
+		expect(header).toBeTruthy();
 	}));
 
 	it(`should have a date property equal to today's date`, async(() => {

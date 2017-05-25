@@ -44,8 +44,8 @@ describe('TodoListComponent', () => {
 
 	it('should create the todo list', async(() => {
 		let fixture = TestBed.createComponent(TodoListComponent);
-		let app = fixture.debugElement.componentInstance;
-		expect(app).toBeTruthy();
+		let list = fixture.debugElement.componentInstance;
+		expect(list).toBeTruthy();
 	}));
 
 	it('should expose the TodoItems from the storage helper', async(() => {

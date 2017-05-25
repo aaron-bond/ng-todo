@@ -61,8 +61,8 @@ describe('ProgressComponent', () => {
 
 	it('should create the progress bar', async(() => {
 		let fixture = TestBed.createComponent(ProgressComponent);
-		let app = fixture.debugElement.componentInstance;
-		expect(app).toBeTruthy();
+		let bar = fixture.debugElement.componentInstance;
+		expect(bar).toBeTruthy();
 	}));
 
 	it('should show 30% complete', async(() => {
