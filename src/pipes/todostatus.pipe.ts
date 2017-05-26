@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TodoItemStatus } from "enums";
+import { TodoItemStatus } from 'enums';
 
 /*
  * Returns the items which match the passed status
@@ -14,7 +14,7 @@ import { TodoItemStatus } from "enums";
 	pure: false
 })
 export class TodoStatusPipe implements PipeTransform {
-	transform(items: TodoItem[], todoItemStatus: TodoItemStatus) {
+	public transform(items: TodoItem[], todoItemStatus: TodoItemStatus) {
 		return items.filter(item => item.Status == todoItemStatus);
 	}
 }
