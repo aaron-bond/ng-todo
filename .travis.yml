@@ -23,4 +23,14 @@ before_script:
 - npm install
 - ng build
 
+after_success:
+- npm run prep
+
 script: karma start karma.conf.js --single-run
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: docs
+  target_branch: gh-pages
