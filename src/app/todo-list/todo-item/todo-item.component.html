@@ -32,7 +32,7 @@
 			<i class="material-icons">pause</i>
 		</span>
 
-		<span class="done" (click)="HandleUpdateClick(TodoItemStatus.Completed)" *ngIf="TodoItem.Status == TodoItemStatus.Active || TodoItem.Status == TodoItemStatus.Paused">
+		<span class="done" (click)="HandleUpdateClick(TodoItemStatus.Completed)" *ngIf="TodoItem.Status != TodoItemStatus.Completed">
 			<i class="material-icons">done</i>
 		</span>
 	</span>

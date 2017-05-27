@@ -40,7 +40,7 @@ export class TodoItemComponent {
 		this.UpdateItem.emit(status);
 	}
 
-	@HostListener('document:click')
+	@HostListener('document:click', ['$event'])
 	private clickAnywhere(event: MouseEvent): void {
 		if (this.IsSelected && !this.elementRef.nativeElement.contains(event.target)) {
 			this.IsSelected = false;

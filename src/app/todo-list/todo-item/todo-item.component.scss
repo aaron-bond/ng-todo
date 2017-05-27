@@ -16,8 +16,14 @@
 	}
 	&.new {
 		opacity: 0.5;
-	}
 
+		.item-controls {
+			width: auto;
+			margin-right: 0.5rem;
+			line-height: 0;
+			vertical-align: middle;
+		}
+	}
 	&.paused {
 		color: $pause;
 	}
@@ -35,6 +41,11 @@
 		}
 		.item-controls {
 			display: flex;
+		}
+	}
+	&:not(.new):not(.selected) {
+		.item-controls {
+			display: none;
 		}
 	}
 
@@ -64,8 +75,7 @@
 	.item-controls {
     	align-items: center;
 		text-align: center;
-			display: none;
-			width: 100%;
+		width: 100%;
 
 		span {
 			flex-grow: 1;

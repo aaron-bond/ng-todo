@@ -5,6 +5,14 @@ interface NodeModule {
 	id: string;
 }
 
+// Extending Jasmine tests
+declare namespace jasmine {
+	interface Matchers {
+		toBeVisible(): boolean;
+		toBeHidden(): boolean;
+	}
+}
+
 interface TodoItem {
 	Id: string;
 	Title: string;
