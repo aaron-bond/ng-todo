@@ -7,7 +7,7 @@ interface NodeModule {
 
 // Extending Jasmine tests
 declare namespace jasmine {
-	interface Matchers {
+	interface Matchers<T> {
 		toBeVisible(): boolean;
 		toBeHidden(): boolean;
 	}
