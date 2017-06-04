@@ -4,12 +4,12 @@
   "short_name": "todo",
   "version": "0.1",
   "icons": {
-    "48": "assets/ic_done_all_black_48dp_xxhdpi.png",
-    "96": "assets/ic_done_all_black_48dp_xxxhdpi.png"
+    "48": "assets/ic_done_all_white_48dp_1x.png",
+    "96": "assets/ic_done_all_white_48dp_2x.png"
   },
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#2980B9",
-  "theme_color": "#2980B9",
+  "background_color": "#1E1E20",
+  "theme_color": "#1E1E20",
   "offline_enabled": true
 }
