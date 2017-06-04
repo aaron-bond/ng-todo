@@ -1,8 +1,9 @@
 [![Build Status](https://travis-ci.org/aaron-bond/ng-todo.svg?branch=master)](https://travis-ci.org/aaron-bond/ng-todo)
-[![Dependency Status](https://david-dm.org/aaron-bond/ng-todo.svg)](https://david-dm.org/aaron-bond/ng-todo)
-[![Dev Dependency Status](https://david-dm.org/aaron-bond/ng-todo/dev-status.svg)](https://david-dm.org/aaron-bond/ng-todo?type=dev)
 
 [![codecov](https://codecov.io/gh/aaron-bond/ng-todo/branch/master/graph/badge.svg)](https://codecov.io/gh/aaron-bond/ng-todo)
+
+[![Dependency Status](https://david-dm.org/aaron-bond/ng-todo.svg)](https://david-dm.org/aaron-bond/ng-todo)
+[![Dev Dependency Status](https://david-dm.org/aaron-bond/ng-todo/dev-status.svg)](https://david-dm.org/aaron-bond/ng-todo?type=dev)
 
 # ng-todo
 This project is intended to demo Angular 2+ workflow, with Travis CI for continuous integration and testing.

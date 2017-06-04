@@ -93,4 +93,15 @@ describe('StorageHelper', () => {
 		expect(storageHelper.TodoItems).toBeTruthy();
 		expect(storageHelper.TodoItems.length).toBe(0);
 	})));
+
+	it('should remove the item', async(inject([StorageHelper], (storageHelper: StorageHelper) => {
+		let newItem = storageHelper.AddNewItem('Tested todo item');
+		storageHelper.UpdateItem(newItem.Id, TodoItemStatus.Removed);
+
+		// Set the todoItems to null so that they will be retrieved from storage (simulates app-load)
+		storageHelper['todoItems'] = null;
+
+		expect(storageHelper.TodoItems).toBeTruthy();
+		expect(storageHelper.TodoItems.length).toBe(0);
+	})));
 });
