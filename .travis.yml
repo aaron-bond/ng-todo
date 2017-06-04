@@ -20,15 +20,16 @@ before_install:
 before_script:
 - npm install -g @angular/cli
 - npm install -g karma
+- npm install -g codecov
 - npm install
 - ng build
 
 after_success:
 - npm run prep
+- codecov
 
 script:
-- karma start karma.conf.js --single-run --code-coverage
-- ./node_modules/.bin/codecov
+- ng test --single-run --code-coverage
 
 deploy:
   provider: pages
