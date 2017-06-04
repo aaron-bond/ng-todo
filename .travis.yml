@@ -25,9 +25,10 @@ before_script:
 
 after_success:
 - npm run prep
-- ./node_modules/.bin/codecov
 
-script: karma start karma.conf.js --single-run --code-coverage
+script:
+- karma start karma.conf.js --single-run --code-coverage
+- ./node_modules/.bin/codecov
 
 deploy:
   provider: pages
