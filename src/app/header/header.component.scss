@@ -1,7 +1,7 @@
 section {
 	display: flex;
 
-	margin-top: 3rem;
+	margin-top: 1.5rem;
 	margin-bottom: 1rem;
 
 	#date {
@@ -16,12 +16,10 @@ section {
 	#month {
 		font-weight: bold;
 	}
-	#year {
-
-	}
 }
 
 .filler {
+	text-align: center;
 	flex-grow: 1;
 }
 
