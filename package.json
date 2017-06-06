@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prep": "ng build --prod --output-path docs --base-href ng-todo"
+    "prep": "ng build --prod --output-path dist --base-href ng-todo",
+    "precache": "sw-precache --root=dist --verbose"
   },
   "private": true,
   "dependencies": {
