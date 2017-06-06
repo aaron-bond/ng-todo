@@ -3,8 +3,8 @@ module.exports = {
     'dist/**.html',
     'dist/**.js',
     'dist/**.css',
-    'dist/assets/images/*',
-    'dist/assets/icons/*'
+    'dist/assets/*',
+    'dist/assets/*'
   ],
   root: 'dist',
   stripPrefix: 'dist/',
