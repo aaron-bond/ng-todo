@@ -3,7 +3,6 @@
 .item-container {
 	height: 3rem;
 	width: 100%;
-	box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	margin-bottom: 1rem;
@@ -68,6 +67,22 @@
 			&:focus {
 				outline: 0;
 				cursor: text;
+			}
+
+			&::-webkit-input-placeholder {
+				color: $light;
+			}
+			&:-moz-placeholder {
+				/* FF 4-18 */
+				color: $light;
+			}
+			&::-moz-placeholder {
+				/* FF 19+ */
+				color: $light;
+			}
+			&:-ms-input-placeholder {
+				/* IE 10+ */
+				color: $light;
 			}
 		}
 	}
