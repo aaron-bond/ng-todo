@@ -30,7 +30,23 @@ export class TodoItemComponent {
 	}
 
 	public HandleAddClick(): void {
+		this.addItem();
+	}
 
+	public HandleEnterKeyPress(event: KeyboardEvent): void {
+
+		// remove focus from the text input (hides keyboard on mobile devices)
+		let inputField: HTMLInputElement = event.target as HTMLInputElement;
+		inputField.blur();
+
+		this.addItem();
+	}
+
+	public HandleUpdateClick(status: TodoItemStatus): void {
+		this.UpdateItem.emit(status);
+	}
+
+	private addItem(): void {
 		// should only fire the event to add the item if a valid title has been entered
 		if (this.TodoItem.Title) {
 			this.AddNewItem.emit(this.TodoItem.Title);
@@ -38,10 +54,6 @@ export class TodoItemComponent {
 			// reset the textbox
 			this.TodoItem = { Id: '', Title: '', Status: TodoItemStatus.Active };
 		}
-	}
-
-	public HandleUpdateClick(status: TodoItemStatus): void {
-		this.UpdateItem.emit(status);
 	}
 
 	@HostListener('document:click', ['$event'])

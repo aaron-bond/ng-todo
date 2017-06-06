@@ -428,4 +428,29 @@ describe('TodoItemComponent', () => {
 		// Expect the AddNewItem event o be raised off the todo item with the title of the item
 		expect(todoItemComponent.AddNewItem.emit).not.toHaveBeenCalled();
 	}));
+
+	it('should blur the input field after successfully adding an item', async(() => {
+		let fixture: ComponentFixture<TodoItemComponent> = TestBed.createComponent(TodoItemComponent);
+		let todoItemComponent: TodoItemComponent = fixture.debugElement.componentInstance;
+
+		todoItemComponent.IsNewItem = true;
+		fixture.detectChanges();
+
+		let itemElement: HTMLElement = fixture.debugElement.nativeElement;
+		let textInput: HTMLInputElement = itemElement.querySelector('input[type=text]') as HTMLInputElement;
+		spyOn(textInput, 'blur');
+
+		// Ensure the textbox has no value
+		textInput.value = 'TodoItemTest';
+		textInput.dispatchEvent(new Event('input'));
+
+		// Detect changes so binding updates
+		fixture.detectChanges();
+
+		// Simulate "Enter" key being pressed on the field
+		textInput.dispatchEvent(new KeyboardEvent('keyup', { 'key': 'Enter' }));
+
+		// Expect focus to be removed from the field
+		expect(textInput.blur).toHaveBeenCalled();
+	}));
 });
