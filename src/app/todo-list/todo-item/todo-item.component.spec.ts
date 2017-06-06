@@ -402,4 +402,30 @@ describe('TodoItemComponent', () => {
 
 		expect(todoItemComponent.IsSelected).toBeFalsy();
 	}));
+
+	it('should not allow user to submit item with blank description', async(() => {
+		let fixture: ComponentFixture<TodoItemComponent> = TestBed.createComponent(TodoItemComponent);
+		let todoItemComponent: TodoItemComponent = fixture.debugElement.componentInstance;
+
+		todoItemComponent.IsNewItem = true;
+		fixture.detectChanges();
+
+		let itemElement: HTMLElement = fixture.debugElement.nativeElement;
+		let textInput: HTMLInputElement = itemElement.querySelector('input[type=text]') as HTMLInputElement;
+		let addIcon: HTMLInputElement = itemElement.querySelector('.item-controls i') as HTMLInputElement;
+		spyOn(todoItemComponent.AddNewItem, 'emit');
+
+		// Ensure the textbox has no value
+		textInput.value = '';
+		textInput.dispatchEvent(new Event('input'));
+
+		// Detect changes so binding updates
+		fixture.detectChanges();
+
+		// Simulate the icon click event
+		addIcon.click();
+
+		// Expect the AddNewItem event o be raised off the todo item with the title of the item
+		expect(todoItemComponent.AddNewItem.emit).not.toHaveBeenCalled();
+	}));
 });

@@ -30,10 +30,14 @@ export class TodoItemComponent {
 	}
 
 	public HandleAddClick(): void {
-		this.AddNewItem.emit(this.TodoItem.Title);
 
-		// reset the textbox
-		this.TodoItem = { Id: '', Title: '', Status: TodoItemStatus.Active };
+		// should only fire the event to add the item if a valid title has been entered
+		if (this.TodoItem.Title) {
+			this.AddNewItem.emit(this.TodoItem.Title);
+
+			// reset the textbox
+			this.TodoItem = { Id: '', Title: '', Status: TodoItemStatus.Active };
+		}
 	}
 
 	public HandleUpdateClick(status: TodoItemStatus): void {
