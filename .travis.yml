@@ -26,6 +26,7 @@ before_script:
 
 after_success:
 - npm run prep
+- npm run precache
 - codecov
 
 script:
@@ -35,5 +36,5 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: docs
+  local_dir: dist
   target_branch: gh-pages
