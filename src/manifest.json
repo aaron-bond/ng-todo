@@ -3,10 +3,28 @@
   "name": "todo",
   "short_name": "todo",
   "version": "0.1",
-  "icons": {
-    "48": "assets/ic_done_all_white_48dp_1x.png",
-    "96": "assets/ic_done_all_white_48dp_2x.png"
-  },
+  "icons": [
+    {
+      "src": "assets/ic_done_all_black_48dp_mdpi.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "assets/ic_done_all_black_48dp_xhdpi.png",
+      "type": "image/png",
+      "sizes": "98x98"
+    },
+    {
+      "src": "assets/ic_done_all_black_48dp_xxhdpi.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "assets/ic_done_all_black_48dp_xxxhdpi.png",
+      "type": "image/png",
+      "sizes": "194x194"
+    }
+  ],
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#2980B9",
